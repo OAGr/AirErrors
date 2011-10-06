@@ -1,6 +1,8 @@
 Air::Application.routes.draw do
 
-
+    root :to => 'companies#index'
+    match	'home',					:to => 'pages#home'
+  
   resources :companies do
     resources :units do
       resources :errors

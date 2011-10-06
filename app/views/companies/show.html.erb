@@ -11,6 +11,7 @@
 
 <p class="notice"><%= notice %></p>
  
+</br> </br>
 
 <table>
   <tr>
@@ -18,7 +19,6 @@
     <th>User guide</th>
     <th>Install guide</th>
     <th>Type</th>
-    <th>Company</th>
     <th></th>
     <th></th>
     <th></th>
@@ -30,7 +30,6 @@
     <td><%= unit.user_guide %></td>
     <td><%= unit.install_guide %></td>
     <td><%= unit.type %></td>
-    <td><%= unit.company_id %></td>
     <td><%= link_to 'Show', unit %></td>
     <td><%= link_to 'Edit', edit_unit_path(unit) %></td>
     <td><%= link_to 'Destroy', unit, confirm: 'Are you sure?', method: :delete %></td>
@@ -41,6 +40,7 @@
 </br>
 </br>
 
+<h3> Add New Unit </h3>
  
 <%= form_for([@company, @company.units.build]) do |f| %>
 
