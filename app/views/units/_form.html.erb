@@ -1,0 +1,26 @@
+<%= form_for(@unit) do |f| %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :user_guide %><br />
+    <%= f.text_field :user_guide %>
+  </div>
+  <div class="field">
+    <%= f.label :install_guide %><br />
+    <%= f.text_field :install_guide %>
+  </div>
+  <div class="field">
+    <%= f.label :type %><br />
+    <%= f.text_field :type %>
+  </div>
+  <div class="field">
+    <%= f.label :company_id %><br />
+    <%= f.number_field :company_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

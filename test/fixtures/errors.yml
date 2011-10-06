@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  identification: MyString
+  message: MyString
+  action: MyString
+  unit_id: 1
+
+two:
+  name: MyString
+  identification: MyString
+  message: MyString
+  action: MyString
+  unit_id: 1

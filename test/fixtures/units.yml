@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  user_guide: MyString
+  install_guide: MyString
+  type: 
+  company_id: 1
+
+two:
+  name: MyString
+  user_guide: MyString
+  install_guide: MyString
+  type: 
+  company_id: 1

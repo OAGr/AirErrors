@@ -1,0 +1,31 @@
+<h1>Listing units</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>User guide</th>
+    <th>Install guide</th>
+    <th>Type</th>
+    <th>Company</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @units.each do |unit| %>
+  <tr>
+    <td><%= unit.name %></td>
+    <td><%= unit.user_guide %></td>
+    <td><%= unit.install_guide %></td>
+    <td><%= unit.type %></td>
+    <td><%= unit.company_id %></td>
+    <td><%= link_to 'Show', unit %></td>
+    <td><%= link_to 'Edit', edit_unit_path(unit) %></td>
+    <td><%= link_to 'Destroy', unit, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Unit', new_unit_path %>

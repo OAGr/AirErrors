@@ -1,4 +1,17 @@
 Air::Application.routes.draw do
+
+
+  resources :companies do
+    resources :units do
+      resources :errors
+    end
+  end
+  resources :errors
+
+  resources :units do
+    resources :errors
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
