@@ -11,10 +11,10 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
+	<div class="field">
+		<%= f.label :error_Code %><br />
+		<%= select(:error, :name, [['Air Temperature Sensor Failure/Fault'], ['Compressor Short Cycling'], ['Economizer Mechanical Fault'], ['Economizer Communication Fault'], ['Low Refrigerant Charge'], ['High Refrigerant Charge'], ['Refrigerant Line Restrictions/TXV Problems'], ['Refrigerant Line Non-Condensables'], ['Low Evaporator Airflow'], ['Low Condenser Airflow']]) %>	
+	</div>
   <div class="field">
     <%= f.label :identification %><br />
     <%= f.text_field :identification %>

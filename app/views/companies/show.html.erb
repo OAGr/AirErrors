@@ -29,7 +29,7 @@
     <td><%= unit.name %></td>
     <td><%= unit.user_guide %></td>
     <td><%= unit.install_guide %></td>
-    <td><%= unit.type %></td>
+    <td><%= unit.unit_type %></td>
     <td><%= link_to 'Show', unit %></td>
     <td><%= link_to 'Edit', edit_unit_path(unit) %></td>
     <td><%= link_to 'Destroy', unit, confirm: 'Are you sure?', method: :delete %></td>
@@ -56,10 +56,11 @@
     <%= f.label :install_guide %><br />
     <%= f.text_field :install_guide %>
   </div>
-  <div class="field">
-    <%= f.label :type %><br />
-    <%= f.text_field :type %>
-  </div>
+
+<div class="field">
+	<%= f.label :unit_type %><br />
+	<%= f.text_field :unit_type %>
+</div>
   <div class="actions">
     <%= f.submit %>
   </div>

@@ -12,14 +12,15 @@
     <%= f.label :install_guide %><br />
     <%= f.text_field :install_guide %>
   </div>
-  <div class="field">
-    <%= f.label :type %><br />
-    <%= f.text_field :type %>
-  </div>
-  <div class="field">
-    <%= f.label :company_id %><br />
-    <%= f.number_field :company_id %>
-  </div>
+<div class="field">
+	<%= f.label :unit_type %><br />
+	<%= select(:unit, :unit_type, [['Air Conditioner'],['Thermostat']) %>	
+</div>
+
+<div class="field">
+	<%= f.label :company %><br />
+	<%= select(:unit, :company_id, [['Lennox',1],['Carrier',2], ['Trane',3]) %>	
+</div>
   <div class="actions">
     <%= f.submit %>
   </div>
