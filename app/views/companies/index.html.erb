@@ -1,11 +1,11 @@
-<h1>Listing companies</h1>
+
+<div class="portlet-header">
+	<h4>All Companies</h4>	
+</div>
+
+<div class="portlet-content">
 
 <table>
-  <tr>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
 
 <% @companies.each do |company| %>
   <tr>
@@ -17,3 +17,4 @@
 <br />
 
 <%= link_to 'New Company', new_company_path %>
+</div>

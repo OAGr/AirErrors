@@ -1,85 +1,103 @@
-<p id="notice"><%= notice %></p>
+<div class="portlet-header">
+	<h4><%= @unit.name %> Unit Page</h4>	
 
-<h2><%= @unit.name %> Unit Page </h2>
+	<%= link_to 'Destroy', @unit, confirm: 'Are you sure?', method: :delete %> |
+	<%= link_to 'Edit', edit_unit_path(@unit) %>
 
-<p>
- 
-<td><% if !@unit.user_guide.nil? & !@unit.user_guide.empty? %>
-	<b>User guide:</b>
-    <a href="( <%= @unit.user_guide %> )"> Link </a>
-<% end %> </td>
-<td><% if !@unit.install_guide.nil? & !@unit.install_guide.empty? %>
-	<b>Install guide:</b>
-<a href="( <%= @unit.install_guide %> )"> Link </a>
-<% end %></td>
+</div> 
+
+<div class="portlet-content">
+	<p>
+		<td><% if !@unit.user_guide.nil? & !@unit.user_guide.empty? %>
+			<b>User guide:</b>
+		    <a href="( <%= @unit.user_guide %> )"> Link </a>
+		<% end %> </td>
+		<td><% if !@unit.install_guide.nil? & !@unit.install_guide.empty? %>
+			<b>Install guide:</b>
+		<a href="( <%= @unit.install_guide %> )"> Link </a>
+		<% end %></td>
+
+
+		  <b>Type:</b>
+		  <%= @unit.unit_type %>
+
+		  <b>Company:</b>
+		  <td><%= link_to @company.name, @company %></td>
+	</p>
+
+
+</div>
+
+
+
+</div>
+<div class="portlet x12">
+	<div class="portlet-header">
+		<h4><%= @unit.name %> Error Codes </h4>	
+	</div>	
+	<div class="portlet-content">
+		<p id="notice"><%= notice %></p>
+
+		<% if @unit.errors.count == 0 %>
+			<h3>(No Errors Found) </h3>
+		<% else %>
+		<table>
+		  <tr>
+		    <th>Name</th>
+		    <th>Identification</th>
+		    <th>Message</th>
+		    <th>Action</th>
+		    <th></th>
+		    <th></th>
+		    <th></th>
+		  </tr>
+
+		<% @unit.errors.each do |error| %>
+		  <tr>
+		    <td><%= error.name %></td>
+		    <td><%= error.identification %></td>
+		    <td><%= error.message %></td>
+		    <td><%= error.action %></td>
+		    <td><%= link_to 'Show', error %></td>
+		    <td><%= link_to 'Edit', edit_error_path(error) %></td>
+		    <td><%= link_to 'Destroy', error, confirm: 'Are you sure?', method: :delete %></td>
+		  </tr>
+		<% end %>
+		</table>
+
+		<% end %>
+	</div>
+</div>
+
+
+<div class="portlet x12">
+	<div class="portlet-header">
+		<h4><%= @unit.name %> Create New Error</h4>	
+	</div>
+	<div class="portlet-content">
 	
-	
-  <b>Type:</b>
-  <%= @unit.unit_type %>
+		<%= form_for([@unit, @unit.errors.build]) do |f| %>
 
-  <b>Company:</b>
-  <td><%= link_to @company.name, @company %></td>
-</p>
+			<div class="field">
+				<%= f.label :error_Code %><br />
+				<%= select(:error, :name, [['Air Temperature Sensor Failure/Fault'], ['Compressor Short Cycling'], ['Economizer Mechanical Fault'], ['Economizer Communication Fault'], ['Low Refrigerant Charge'], ['High Refrigerant Charge'], ['Refrigerant Line Restrictions/TXV Problems'], ['Refrigerant Line Non-Condensables'], ['Low Evaporator Airflow'], ['Low Condenser Airflow']]) %>	
+			</div>
+			<div class="field">
+			  <%= f.label :identification %><br />
+			  <%= f.text_field :identification %>
+			</div>
+			<div class="field">
+			  <%= f.label :message %><br />
+			  <%= f.text_field :message %>
+			</div>
+			<div class="field">
+			  <%= f.label :action %><br />
+			  <%= f.text_field :action %>
+			</div>
 
-<%= link_to 'Destroy', @unit, confirm: 'Are you sure?', method: :delete %> |
-<%= link_to 'Edit', edit_unit_path(@unit) %>
+			<div class="actions">
+			  <%= f.submit %>
+			</div>
 
-</br></br></br>
-<h3>All Error Codes of <%= @unit.name %> </h3>
-<% if @unit.errors.count == 0 %>
-	</br><h3>(No Errors Found) </h3>
-<% else %>
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Identification</th>
-    <th>Message</th>
-    <th>Action</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @unit.errors.each do |error| %>
-  <tr>
-    <td><%= error.name %></td>
-    <td><%= error.identification %></td>
-    <td><%= error.message %></td>
-    <td><%= error.action %></td>
-    <td><%= link_to 'Show', error %></td>
-    <td><%= link_to 'Edit', edit_error_path(error) %></td>
-    <td><%= link_to 'Destroy', error, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<% end %>
-<br />
-
-
-</br> </br>
-<h3> Create New Error </h3>
-<%= form_for([@unit, @unit.errors.build]) do |f| %>
-
-	<div class="field">
-		<%= f.label :error_Code %><br />
-		<%= select(:error, :name, [['Air Temperature Sensor Failure/Fault'], ['Compressor Short Cycling'], ['Economizer Mechanical Fault'], ['Economizer Communication Fault'], ['Low Refrigerant Charge'], ['High Refrigerant Charge'], ['Refrigerant Line Restrictions/TXV Problems'], ['Refrigerant Line Non-Condensables'], ['Low Evaporator Airflow'], ['Low Condenser Airflow']]) %>	
+		<% end %>
 	</div>
-	<div class="field">
-	  <%= f.label :identification %><br />
-	  <%= f.text_field :identification %>
-	</div>
-	<div class="field">
-	  <%= f.label :message %><br />
-	  <%= f.text_field :message %>
-	</div>
-	<div class="field">
-	  <%= f.label :action %><br />
-	  <%= f.text_field :action %>
-	</div>
-
-	<div class="actions">
-	  <%= f.submit %>
-	</div>
-
-<% end %>

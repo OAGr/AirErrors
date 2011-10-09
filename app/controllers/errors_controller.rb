@@ -14,7 +14,8 @@ class ErrorsController < ApplicationController
   # GET /errors/1.json
   def show
     @error = Error.find(params[:id])
-
+    @unit = @error.unit
+    @company = @unit.company
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @error }
@@ -35,6 +36,7 @@ class ErrorsController < ApplicationController
   # GET /errors/1/edit
   def edit
     @error = Error.find(params[:id])
+    @unit = @error.unit
   end
 
   # POST /errors

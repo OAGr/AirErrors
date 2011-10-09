@@ -1,4 +1,9 @@
-<h1>Listing errors</h1>
+
+<div class="portlet-header">
+	<h4>All Errors</h4>	
+</div>
+
+<div class="portlet-content">
 
 <table>
   <tr>
@@ -18,7 +23,7 @@
     <td><%= error.identification %></td>
     <td><%= error.message %></td>
     <td><%= error.action %></td>
-    <td><%= error.unit_id %></td>
+    <td><%= Unit.find(error.unit_id).name %></td>
     <td><%= link_to 'Show', error %></td>
     <td><%= link_to 'Edit', edit_error_path(error) %></td>
     <td><%= link_to 'Destroy', error, confirm: 'Are you sure?', method: :delete %></td>
@@ -26,6 +31,4 @@
 <% end %>
 </table>
 
-<br />
-
-<%= link_to 'New Error', new_error_path %>
+</div>

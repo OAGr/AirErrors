@@ -1,74 +1,74 @@
-<p id="notice"><%= notice %></p>
+	<div class="portlet-header">
+		<h4>Units by <%= @company.name %></h4>	
+		<%= link_to 'Edit', edit_company_path(@company) %> |
+		<%= link_to 'Destroy', @company, confirm: 'Are you sure?', method: :delete %>
+	</div> 
 
-<p>
+	<div class="portlet-content">
 
-<h2><%= @company.name %> Company Page </h2>
-
-<%= link_to 'Edit', edit_company_path(@company) %> |
-<%= link_to 'Back', companies_path %> | 
-<td><%= link_to 'Destroy', @company, confirm: 'Are you sure?', method: :delete %></td>
-
-</p>
-
-<p class="notice"><%= notice %></p>
+		<p class="notice"><%= notice %></p>
  
-</br> </br>
+		<table>
+		  <tr>
+		    <th> <div id="field1"> Name </div> </th>
+		    <th>User guide</th>
+		    <th>Install guide</th>
+		    <th>Type</th>
+		    <th>Error Codes</th>
+		    <th></th>
+		    <th></th>
+		  </tr>
 
-<h3> All Units by <%= @company.name %> </h3>
+		<% @company.units.each do |unit| %>
+		  <tr>
+			<td><%= link_to unit.name, unit %></td>
+			<td>	<% if !unit.user_guide.nil? & !unit.user_guide.empty? %>
+			    		<a href="( <%= unit.user_guide %> )"> Link </a>
+				<% end %>
+				</td>
+			<td>	<% if !unit.install_guide.nil? & !unit.install_guide.empty? %>
+					<a href="( <%= unit.install_guide %> )"> Link </a>
+				<% end %></td>
+		    	<td><%= unit.unit_type %></td>
+		    	<td><%= unit.errors.count %></td>
+		   </tr>
+		<% end %>
+		</table>
 
-<table>
-  <tr>
-    <th> <div id="field1"> Name </div> </th>
-    <th>User guide</th>
-    <th>Install guide</th>
-    <th>Type</th>
-    <th>Error Codes</th>
-    <th></th>
-    <th></th>
-  </tr>
-
-</br>
-<% @company.units.each do |unit| %>
-  <tr>
-<td><%= link_to unit.name, unit %></td>
-	<td><% if !unit.user_guide.nil? & !unit.user_guide.empty? %>
-	    <a href="( <%= unit.user_guide %> )"> Link </a>
-	<% end %> </td>
-	<td><% if !unit.install_guide.nil? & !unit.install_guide.empty? %>
-	<a href="( <%= unit.install_guide %> )"> Link </a>
-	<% end %></td>
-    <td><%= unit.unit_type %></td>
-    <td><%= unit.errors.count %></td>
-
-   </tr>
-<% end %>
-</table>
-
-</br>
-</br>
-
-<h3> Add New Unit </h3>
- 
-<%= form_for([@company, @company.units.build]) do |f| %>
-
-  <div class="field" >
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :user_guide %><br />
-    <%= f.text_field :user_guide %>
-  </div>
-  <div class="field">
-    <%= f.label :install_guide %><br />
-    <%= f.text_field :install_guide %>
-  </div>
-
-<div class="field">
-	<%= f.label :unit_type %><br />
-	<%= select(:unit, :unit_type, [['Air Conditioner'],['Thermostat'], ['Split System'], ['Air Handler'], ['Heat Pump']]) %>	
+	</div>
 </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+
+<div class="portlet x12">
+
+	<div class="portlet-header">
+		<h4>Add new Unit</h4>	
+	</div>
+
+	<div class="portlet-content">
+
+		<%= form_for([@company, @company.units.build]) do |f| %>
+
+		  <div class="field" >
+		    <%= f.label :name %><br />
+		    <%= f.text_field :name %>
+		  </div>
+		  <div class="field">
+		    <%= f.label :user_guide %><br />
+		    <%= f.text_field :user_guide %>
+		  </div>
+		  <div class="field">
+		    <%= f.label :install_guide %><br />
+		    <%= f.text_field :install_guide %>
+		  </div>
+
+		<div class="field">
+			<%= f.label :unit_type %><br />
+			<%= select(:unit, :unit_type, [['Air Conditioner'],['Thermostat'], ['Split System'], ['Air Handler'], ['Heat Pump']]) %>	
+		</div>
+		  <div class="actions">
+		    <%= f.submit %>
+		  </div>
+		<% end %>
+
+	</div>
+

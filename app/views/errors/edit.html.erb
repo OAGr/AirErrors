@@ -1,6 +1,10 @@
-<h1>Editing error</h1>
+<div class="portlet-header">
+	<h4>Editing Error <%= @error.name %> for Unit <%= @unit.name %> </h4>	
+</div> 
 
-<%= render 'form' %>
+<div class="portlet-content">
 
-<%= link_to 'Show', @error %> |
-<%= link_to 'Back', errors_path %>
+	<%= render 'form' %>
+
+
+</div>
