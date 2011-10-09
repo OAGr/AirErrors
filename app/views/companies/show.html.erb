@@ -1,7 +1,9 @@
 	<div class="portlet-header">
 		<h4>Units by <%= @company.name %></h4>	
-		<%= link_to 'Edit', edit_company_path(@company) %> |
-		<%= link_to 'Destroy', @company, confirm: 'Are you sure?', method: :delete %>
+		<div class="portlet-header-right">
+			<%= link_to 'Edit', edit_company_path(@company) %> |
+			<%= link_to 'Destroy', @company, confirm: 'Are you sure?', method: :delete %>
+		</div>
 	</div> 
 
 	<div class="portlet-content">
@@ -23,11 +25,11 @@
 		  <tr>
 			<td><%= link_to unit.name, unit %></td>
 			<td>	<% if !unit.user_guide.nil? & !unit.user_guide.empty? %>
-			    		<a href="( <%= unit.user_guide %> )"> Link </a>
+			    		<%= link_to "Link", unit.user_guide %>
 				<% end %>
 				</td>
 			<td>	<% if !unit.install_guide.nil? & !unit.install_guide.empty? %>
-					<a href="( <%= unit.install_guide %> )"> Link </a>
+					<%= link_to "Link", unit.install_guide %>
 				<% end %></td>
 		    	<td><%= unit.unit_type %></td>
 		    	<td><%= unit.errors.count %></td>

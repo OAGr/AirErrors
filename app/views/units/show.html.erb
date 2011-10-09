@@ -1,26 +1,27 @@
 <div class="portlet-header">
 	<h4><%= @unit.name %> Unit Page</h4>	
-
-	<%= link_to 'Destroy', @unit, confirm: 'Are you sure?', method: :delete %> |
-	<%= link_to 'Edit', edit_unit_path(@unit) %>
-
+	<div class="portlet-header-right">
+		<%= link_to 'Destroy', @unit, confirm: 'Are you sure?', method: :delete %> |
+		<%= link_to 'Edit', edit_unit_path(@unit) %>
+	</div>
 </div> 
 
 <div class="portlet-content">
 	<p>
 		<td><% if !@unit.user_guide.nil? & !@unit.user_guide.empty? %>
 			<b>User guide:</b>
-		    <a href="( <%= @unit.user_guide %> )"> Link </a>
+		    <a href="( <%= @unit.user_guide %> )"> Link </a></br>
 		<% end %> </td>
+		
 		<td><% if !@unit.install_guide.nil? & !@unit.install_guide.empty? %>
 			<b>Install guide:</b>
-		<a href="( <%= @unit.install_guide %> )"> Link </a>
+		<a href="( <%= @unit.install_guide %> )"> Link </a></br>
 		<% end %></td>
 
 
 		  <b>Type:</b>
 		  <%= @unit.unit_type %>
-
+			</br>
 		  <b>Company:</b>
 		  <td><%= link_to @company.name, @company %></td>
 	</p>

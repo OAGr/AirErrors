@@ -14,9 +14,9 @@
 
 						<div class="mega-content mega-menu ">
 							<ul>
-								<li><a href="/companies/1">Lennox</a></li>
-								<li><a href="/companies/2">Carrier</a></li>
-								<li><a href="/companies/3">Trane</a></li>	
+								<% Company.all.each do |company| %>
+								<li><td><%= link_to company.name, company %></td></li>
+								<% end %>
 							</ul>
 						</div>						
 					</li>

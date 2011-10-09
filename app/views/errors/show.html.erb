@@ -1,5 +1,9 @@
 <div class="portlet-header">
-	<h4><%= @error.name %> for <%= @unit.name %></h4>	
+	<h4><%= @error.name %> for <%= @unit.name %></h4>
+	<div class="portlet-header-right">
+		<%= link_to 'Edit', edit_error_path(@error) %> |
+		<%= link_to 'Back', errors_path %>
+	</div>
 </div> 
 
 <div class="portlet-content">
@@ -35,7 +39,5 @@
 	  <%= @company.name %>
 	</p>
 
-	<%= link_to 'Edit', edit_error_path(@error) %> |
-	<%= link_to 'Back', errors_path %>
 
 </div>

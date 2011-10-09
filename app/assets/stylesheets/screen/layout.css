@@ -245,7 +245,16 @@ body.layout-fixed { background: #D9E2EC; }
 		border-top-right-radius: 8px;
 
 	}
+	.portlet-header-right
+	{
+		float: right;
+		height: 0;
+		margin-right: 1em;
+		position: relative;
+		top: -7px;
 
+	}
+	
 		.portlet-state-closed .portlet-header { padding-bottom: 10px; }
 	
 		.portlet-header h4
@@ -256,6 +265,7 @@ body.layout-fixed { background: #D9E2EC; }
 			color: #263849;
 			padding: 0 0 0 10px;
 			margin: 0;
+			float:left;
 		}
 		
 		.portlet-state-closed .portlet-header { -moz-border-radius: 6px; -webkit-border-radius: 6px; }
