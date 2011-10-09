@@ -1,39 +1,46 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Name:</b>
-  <%= @company.name %>
-</p>
 
+<h2><%= @company.name %> Company Page </h2>
 
 <%= link_to 'Edit', edit_company_path(@company) %> |
-<%= link_to 'Back', companies_path %>
+<%= link_to 'Back', companies_path %> | 
+<td><%= link_to 'Destroy', @company, confirm: 'Are you sure?', method: :delete %></td>
+
+</p>
 
 <p class="notice"><%= notice %></p>
  
 </br> </br>
 
+<h3> All Units by <%= @company.name %> </h3>
+
 <table>
   <tr>
-    <th>Name</th>
+    <th> <div id="field1"> Name </div> </th>
     <th>User guide</th>
     <th>Install guide</th>
     <th>Type</th>
-    <th></th>
+    <th>Error Codes</th>
     <th></th>
     <th></th>
   </tr>
 
+</br>
 <% @company.units.each do |unit| %>
   <tr>
-    <td><%= unit.name %></td>
-    <td><%= unit.user_guide %></td>
-    <td><%= unit.install_guide %></td>
+<td><%= link_to unit.name, unit %></td>
+	<td><% if !unit.user_guide.nil? & !unit.user_guide.empty? %>
+	    <a href="( <%= unit.user_guide %> )"> Link </a>
+	<% end %> </td>
+	<td><% if !unit.install_guide.nil? & !unit.install_guide.empty? %>
+	<a href="( <%= unit.install_guide %> )"> Link </a>
+	<% end %></td>
     <td><%= unit.unit_type %></td>
-    <td><%= link_to 'Show', unit %></td>
-    <td><%= link_to 'Edit', edit_unit_path(unit) %></td>
-    <td><%= link_to 'Destroy', unit, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
+    <td><%= unit.errors.count %></td>
+
+   </tr>
 <% end %>
 </table>
 
@@ -44,7 +51,7 @@
  
 <%= form_for([@company, @company.units.build]) do |f| %>
 
-  <div class="field">
+  <div class="field" >
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
@@ -59,7 +66,7 @@
 
 <div class="field">
 	<%= f.label :unit_type %><br />
-	<%= f.text_field :unit_type %>
+	<%= select(:unit, :unit_type, [['Air Conditioner'],['Thermostat'], ['Split System'], ['Air Handler'], ['Heat Pump']]) %>	
 </div>
   <div class="actions">
     <%= f.submit %>

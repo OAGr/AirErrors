@@ -1,37 +1,34 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @unit.name %>
-</p>
+<h2><%= @unit.name %> Unit Page </h2>
 
 <p>
-  <b>User guide:</b>
-  <%= @unit.user_guide %>
-</p>
-
-<p>
-  <b>Install guide:</b>
-  <%= @unit.install_guide %>
-</p>
-
-<p>
+ 
+<td><% if !@unit.user_guide.nil? & !@unit.user_guide.empty? %>
+	<b>User guide:</b>
+    <a href="( <%= @unit.user_guide %> )"> Link </a>
+<% end %> </td>
+<td><% if !@unit.install_guide.nil? & !@unit.install_guide.empty? %>
+	<b>Install guide:</b>
+<a href="( <%= @unit.install_guide %> )"> Link </a>
+<% end %></td>
+	
+	
   <b>Type:</b>
   <%= @unit.unit_type %>
-</p>
 
-<p>
   <b>Company:</b>
-  <%= @unit.company_id %>
+  <td><%= link_to @company.name, @company %></td>
 </p>
 
-
-<%= link_to 'Edit', edit_unit_path(@unit) %> |
-<%= link_to 'Back', units_path %>
+<%= link_to 'Destroy', @unit, confirm: 'Are you sure?', method: :delete %> |
+<%= link_to 'Edit', edit_unit_path(@unit) %>
 
 </br></br></br>
-<h1>Listing errors</h1>
-
+<h3>All Error Codes of <%= @unit.name %> </h3>
+<% if @unit.errors.count == 0 %>
+	</br><h3>(No Errors Found) </h3>
+<% else %>
 <table>
   <tr>
     <th>Name</th>
@@ -56,6 +53,7 @@
 <% end %>
 </table>
 
+<% end %>
 <br />
 
 
