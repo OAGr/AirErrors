@@ -10,12 +10,12 @@
 	<p>
 		<td><% if !@unit.user_guide.nil? & !@unit.user_guide.empty? %>
 			<b>User guide:</b>
-		    <a href="( <%= @unit.user_guide %> )"> Link </a></br>
+		   <%= link_to "Link", @unit.user_guide %>
 		<% end %> </td>
 		
 		<td><% if !@unit.install_guide.nil? & !@unit.install_guide.empty? %>
 			<b>Install guide:</b>
-		<a href="( <%= @unit.install_guide %> )"> Link </a></br>
+		<%= link_to "Link", @unit.install_guide %>
 		<% end %></td>
 
 

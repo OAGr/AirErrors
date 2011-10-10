@@ -12,22 +12,20 @@
     <th>Message</th>
     <th>Action</th>
     <th>Unit</th>
-    <th></th>
+    <th>Company</th>
     <th></th>
     <th></th>
   </tr>
 
 <% @errors.each do |error| %>
   <tr>
-    <td><%= error.name %></td>
+    <td><%= link_to error.name, error %></td>
     <td><%= error.identification %></td>
     <td><%= error.message %></td>
     <td><%= error.action %></td>
-    <td><%= Unit.find(error.unit_id).name %></td>
-    <td><%= link_to 'Show', error %></td>
-    <td><%= link_to 'Edit', edit_error_path(error) %></td>
-    <td><%= link_to 'Destroy', error, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
+    <td><%= link_to error.unit.name, error.unit %></td>
+    <td><%= link_to error.unit.company.name, error.unit.company %></td>
+    </tr>
 <% end %>
 </table>
 

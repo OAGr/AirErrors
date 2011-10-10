@@ -18,12 +18,17 @@
 
 	<% @units.each do |unit| %>
 	  <tr>
-	    <td><%= unit.name %></td>
-	    <td><%= unit.user_guide %></td>
-	    <td><%= unit.install_guide %></td>
+		<td><%= link_to unit.name, unit %></td>
+	    
+		<td>	<% if !unit.user_guide.nil? & !unit.user_guide.empty? %>
+		    		<%= link_to "Link", unit.user_guide %>
+			<% end %>
+			</td>
+		<td>	<% if !unit.install_guide.nil? & !unit.install_guide.empty? %>
+				<%= link_to "Link", unit.install_guide %>
+			<% end %></td>
 	    <td><%= unit.unit_type %></td>
 	    <td><%= Company.find_by_id(unit.company_id).name %></td>
-	    <td><%= link_to 'Show', unit %></td>
 	    <td><%= link_to 'Edit', edit_unit_path(unit) %></td>
 	    <td><%= link_to 'Destroy', unit, confirm: 'Are you sure?', method: :delete %></td>
 	  </tr>
