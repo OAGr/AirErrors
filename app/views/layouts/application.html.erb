@@ -12,7 +12,17 @@
 
 
 <body>
+	
 <div id="wrapper" class="clearfix">
+	<div id="content" class="xfluid">
+		<% flash.each do |key,value|%>
+		<div class="portlet x12", style="margin:0.5em">	
+			<div class="<%= key %>" style="padding:0.5em"> <%=value%> </div>	
+		</div>
+		<% end %>
+
+	</div>
+	
 	<div id="content" class="xfluid">
 		<div class="portlet x12">
 	

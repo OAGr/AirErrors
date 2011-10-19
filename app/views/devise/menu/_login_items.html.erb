@@ -1,0 +1,47 @@
+
+
+
+<%= form_for("user", :url => user_session_path) do |f| %>
+
+ <div class="content_front">
+
+        <div class="pad">
+
+        	<div class="field">
+				<label>Email:</label>
+
+				<div class=""><span class="input"><%= f.text_field :email, :id=>"login_email", :style=>"font-size:14px; width:279px" %></span></div>
+			</div> <!-- .field -->
+
+			<div class="field">
+				<label>Password:</label>
+				<div class=""><span class="input"><%= f.password_field :password, :class=>"input", :id=>"login_password", :value =>"password", :style=>"font-size:14px; width:181px"  %>
+					<a style="" href="javascript:;" id="forgot_my_password"><%= link_to "Forgot password?", new_password_path('user') %>
+				  </a></span></div>
+			</div> <!-- .field -->
+
+			<div class="checkbox">
+				<span class="label">&nbsp;</span>
+
+				<div class=""><%= f.check_box :remember_me, :id=>"remember", :class=>"checkbox" %><label style="display: inline;" for="remember">Remember me on this computer</label></div>
+			</div> <!-- .field -->
+
+
+			<div class="field">
+				<span class="label">&nbsp;</span>
+				<%=  f.submit 'Sign in', :class=>"btn", :style => "background-image: url(/assets/bg-lite.png);
+				background-color: #263849;
+				border-color: #16222C;
+				color: white;" %>
+			</div> <!-- .field -->
+			
+			  
+			  
+			  
+
+
+        </div>
+    </div>
+
+<% end %>
+

@@ -1,9 +1,11 @@
 <div class="portlet-header">
 	<h4><%= @unit.name %> Unit Page</h4>	
-	<div class="portlet-header-right">
-		<%= link_to 'Destroy', @unit, confirm: 'Are you sure?', method: :delete %> |
-		<%= link_to 'Edit', edit_unit_path(@unit) %>
-	</div>
+	<% if current_user.admin? %>
+		<div class="portlet-header-right">
+			<%= link_to 'Destroy', @unit, confirm: 'Are you sure?', method: :delete %> |
+			<%= link_to 'Edit', edit_unit_path(@unit) %>
+		</div>
+	<% end %>
 </div> 
 
 <div class="portlet-content">
@@ -60,8 +62,10 @@
 		    <td><%= error.message %></td>
 		    <td><%= error.action %></td>
 		    <td><%= link_to 'Show', error %></td>
-		    <td><%= link_to 'Edit', edit_error_path(error) %></td>
-		    <td><%= link_to 'Destroy', error, confirm: 'Are you sure?', method: :delete %></td>
+			<% if current_user.admin? %>
+		    		<td><%= link_to 'Edit', edit_error_path(error) %></td>
+		    		<td><%= link_to 'Delete', error, confirm: 'Are you sure?', method: :delete %></td>
+			<% end %>
 		  </tr>
 		<% end %>
 		</table>
@@ -70,6 +74,7 @@
 	</div>
 </div>
 
+<% if current_user.admin? %>
 
 <div class="portlet x12">
 	<div class="portlet-header">
@@ -102,3 +107,4 @@
 
 		<% end %>
 	</div>
+<% end %>

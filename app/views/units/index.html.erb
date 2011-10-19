@@ -29,9 +29,11 @@
 			<% end %></td>
 	    <td><%= unit.unit_type %></td>
 	    <td><%= Company.find_by_id(unit.company_id).name %></td>
+	<% if current_user.admin? %>
 	    <td><%= link_to 'Edit', edit_unit_path(unit) %></td>
 	    <td><%= link_to 'Destroy', unit, confirm: 'Are you sure?', method: :delete %></td>
-	  </tr>
+	<% end %>
+	</tr>
 	<% end %>
 	</table>
 

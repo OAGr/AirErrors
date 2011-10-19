@@ -1,9 +1,11 @@
 	<div class="portlet-header">
 		<h4>Units by <%= @company.name %></h4>	
-		<div class="portlet-header-right">
-			<%= link_to 'Edit', edit_company_path(@company) %> |
-			<%= link_to 'Destroy', @company, confirm: 'Are you sure?', method: :delete %>
-		</div>
+		<% if current_user.admin? %>
+			<div class="portlet-header-right">
+				<%= link_to 'Edit', edit_company_path(@company) %> |
+				<%= link_to 'Destroy', @company, confirm: 'Are you sure?', method: :delete %>
+			</div>
+		<% end %>
 	</div> 
 
 	<div class="portlet-content">
@@ -40,6 +42,8 @@
 	</div>
 </div>
 
+<% if current_user.admin? %>
+
 <div class="portlet x12">
 
 	<div class="portlet-header">
@@ -74,3 +78,4 @@
 
 	</div>
 
+<% end %>

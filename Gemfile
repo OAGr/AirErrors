@@ -9,6 +9,9 @@ gem 'execjs'
 
 gem 'therubyracer'
 
+gem 'devise'
+
+gem 'taps'
 
 group :production do
 	gem 'pg'

@@ -15,6 +15,7 @@
 </table>
 
 <br />
-
-<%= link_to 'New Company', new_company_path %>
+<% if current_user.admin? %>
+	<%= link_to 'New Company', new_company_path %>
+<% end %>
 </div>

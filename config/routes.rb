@@ -1,6 +1,8 @@
 Air::Application.routes.draw do
 
-    root :to => 'companies#index'
+  devise_for :users, :path => "users", :path_names => { :sign_up => 'sce_signup' }
+
+    root :to =>'pages#home'
     match	'home',					:to => 'pages#home'
   
   resources :companies do

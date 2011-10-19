@@ -1,4 +1,5 @@
 class ErrorsController < ApplicationController
+  before_filter :authenticate_user!
   # GET /errors
   # GET /errors.json
   def index

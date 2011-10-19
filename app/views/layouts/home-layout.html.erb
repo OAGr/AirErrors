@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>AirErrors</title>
+  
+  		<%= stylesheet_link_tag    'screen.css','plugin.css', 'custom.css', 'login.css' %>
+
+</head>
+
+
+
+
+	
+	
+		
+
+	<body >
+
+<div id="login">
+
+	<h1 id="title2", style="color:white">SCE AC Errors</a></h1>
+	<% flash.each do |key,value|%>
+	<div class="<%= key %>"> <%=value%> </div>
+	<% end %>
+<div id="login-body" class="clearfix"> 
+
+<%= render 'devise/menu/login_items' %>
+
+</div>
+
+</div> <!-- #login -->
+
+
+</body>
+
+</html>

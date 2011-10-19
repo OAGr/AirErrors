@@ -1,6 +1,7 @@
 class UnitsController < ApplicationController
   # GET /units
   # GET /units.json
+  before_filter :authenticate_user!
   def index
     @units = Unit.all
 
